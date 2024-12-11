@@ -118,12 +118,12 @@ public class Scrabble {
 				System.out.println("");
 			}else{
 				if(!MyString.subsetOf(input,hand)){
-					System.out.println("Invalid word.Try again.");
+					System.out.println("Invalid word. Try again.");
 				}else{
 					int wordScore = wordScore(input);
 					score += wordScore(input);
 					hand = MyString.remove(hand,input);
-					System.out.println(input + " earned " + wordScore + "  Score: " + score + " points");
+					System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points");
 					System.out.println("");
 				}
 			}
