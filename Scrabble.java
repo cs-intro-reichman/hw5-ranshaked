@@ -156,7 +156,7 @@ public class Scrabble {
 				{
 					playHand(createHand());
 				}else{
-					System.out.println("Error , Try again.");
+					System.out.println("ERROR! Invalid input. Try again.");
 				}
 	
 		}
