@@ -129,7 +129,6 @@ public class Scrabble {
 				}
 			}
 		}
-			
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
 		}
