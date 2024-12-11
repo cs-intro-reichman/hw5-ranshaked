@@ -60,11 +60,6 @@ public class MyString {
                 return new String(arr);
             }
         } 
-        if(arr.length == 0)
-        {
-            arr = new char[1];
-            arr[0] = ' ';
-        }
         return new String (arr);
     }
     public static String randomStringOfLetters(int n) {
