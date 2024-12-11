@@ -115,6 +115,8 @@ public class Scrabble {
 			{
 				score = wordScore(input);
 				hand = MyString.remove(hand, input);
+			}else{
+				System.out.println("your word not from the dictionary");
 			}
 			
 			//// Replace the following break statement with code
@@ -141,11 +143,20 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
+			if (input.equals("e")) {
+				break;
+			} else {
+				if(input.equals("n"))
+				{
+					playHand(createHand());
+				}
+
 			
 			//// Replace the following break statement with code
 			//// that completes the game playing loop
 			break;
 		}
+	}
 	}
 
 	public static void main(String[] args) {
