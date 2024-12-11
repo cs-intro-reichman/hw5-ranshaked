@@ -54,16 +54,17 @@ public class MyString {
         {
             return " ";
         }
+
         char arr[]= new char[(str.length()*2)];
         for(int i = 0 ; i < arr.length-1; i++)
         {
+            arr[i]= ch;
+            i++;
             arr[i] = str.charAt(i/2);
             if(i/2 == str.length()-1)
             {
                 return new String(arr);
             }
-            i++;
-            arr[i]= ch;
         } 
         return new String (arr);
     }
