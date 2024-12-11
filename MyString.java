@@ -12,6 +12,7 @@ public class MyString {
        // System.out.println(spacedString(hello));
      //   System.out.println(remove("committee", "meet"));
        // System.out.println("comit");
+        System.out.println(subsetOf("pass", "space"));
         System.out.println(subsetOf("runi", "running"));
 
 
@@ -32,13 +33,16 @@ public class MyString {
         int counter = 0;
         for(int i = 0 ; i < str1.length(); i++)
         {
+            if(countChar(str1,str1.charAt(i)) > countChar(str2, str1.charAt(i)))
+            {
+                return false;
+            }
             if(countChar(str2, str1.charAt(i))>=1)
             {
                 counter++;
             }
             
         }
-        System.out.println(counter);
         if(counter == str1.length())
         {
             return true;
