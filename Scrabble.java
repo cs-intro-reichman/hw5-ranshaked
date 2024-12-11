@@ -1,5 +1,7 @@
 
 
+
+
 /*
  * RUNI version of the Scrabble game.
  */
@@ -53,7 +55,7 @@ public class Scrabble {
 		// Checks if the given word is in the dictionary.
 		for( int i = 0 ; i< DICTIONARY.length; i++)
 		{
-			if(word.equals(DICTIONARY[i]))
+			if(DICTIONARY[i].equals(word))
 			{
 				return true;
 			}
