@@ -53,7 +53,7 @@ public class Scrabble {
 		// Checks if the given word is in the dictionary.
 		for( int i = 0 ; i< DICTIONARY.length; i++)
 		{
-			if(word == DICTIONARY[i])
+			if(word.equals(DICTIONARY[i]))
 			{
 				return true;
 			}
@@ -108,12 +108,14 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
+			if(input.charAt(0) == '.')
+			{
+				break;
+			}
 			if(isWordInDictionary(input))
 			{
 				score = wordScore(input);
-				MyString.remove(hand, input);
-			}else{
-				break;
+				hand = MyString.remove(hand, input);
 			}
 			
 			//// Replace the following break statement with code
@@ -151,8 +153,8 @@ public class Scrabble {
 		//testBuildingTheDictionary();  
 		//testScrabbleScore();    
 		//testCreateHands();  
-		//testPlayHands();
-		playGame();
+		testPlayHands();
+		//playGame();
 	}
 	
 	public static void testBuildingTheDictionary() {
@@ -177,9 +179,9 @@ public class Scrabble {
 	//	System.out.println(createHand());
 	}
 	public static void testPlayHands() {
-		//init();
-		//playHand("ocostrza");
-		//playHand("arbffip");
-		//playHand("aretiin");
+		init();
+		playHand(createHand());
+		playHand(createHand());
+		playHand(createHand());
 	}
 }
