@@ -51,20 +51,15 @@ public class MyString {
         char arr[]= new char[(str.length()*2)];
         for(int i = 0 ; i < arr.length-1; i++)
         {
+            arr[i]= ch;
+            i++;
             arr[i] = str.charAt(i/2);
             if(i/2 == str.length()-1)
             {
                 return new String(arr);
             }
-            i++;
-            arr[i]= ch;
         } 
-        char arr1[] = new char[arr.length];
-        for(int t = 0 ; t < arr1.length ; t++)
-        {
-            arr1[t] = arr[t+1];
-        }
-        return new String (arr1);
+        return new String (arr);
     }
     public static String randomStringOfLetters(int n) {
         char arr[] = new char[n];
