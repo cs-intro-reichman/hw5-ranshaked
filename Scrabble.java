@@ -113,7 +113,7 @@ public class Scrabble {
 			}
 			if(isWordInDictionary(input))
 			{
-				score = wordScore(input);
+				score += wordScore(input);
 				hand = MyString.remove(hand, input);
 			}else{
 				System.out.println("your word not from the dictionary");
