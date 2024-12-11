@@ -52,7 +52,7 @@ public class MyString {
         char ch = 32;
         if(str.length() == 0)
         {
-            return " ";
+            return "";
         }
 
         char arr[]= new char[(str.length()*2)];
