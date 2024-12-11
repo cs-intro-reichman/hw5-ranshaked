@@ -97,61 +97,45 @@ public class Scrabble {
 		return str;
 	}
 	public static void playHand(String hand) { 
+		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
 		In in = new In();
-	
-		// Loop until the hand is finished (either by user input '.' or no valid words left)
-		while (hand.length() > 0) {
+		while (n > 0) {
 			System.out.println("Current Hand: " + MyString.spacedString(hand));
 			System.out.println("Enter a word, or '.' to finish playing this hand:");
-	
-			// Read the user's input
+			// Reads the next "token" from the keyboard. A token is defined as a string of 
+			// non-whitespace characters. Whitespace is either space characters, or  
+			// end-of-line characters.
 			String input = in.readString();
-	
-			// If the user enters '.', finish the hand
-			if (input.equals(".")) {
-				break;
-			}
-	
-			// Check if the word is in the dictionary
-			if (!isWordInDictionary(input)) {
+			if(input.equals("."))
+			{
+			break;
+			}else{
+			if(!isWordInDictionary(input)){
 				System.out.println("No such word in the dictionary. Try again.");
 				System.out.println("");
-			}
-			// Check if the word can be formed with the current letters in the hand
-			else if (!MyString.subsetOf(input, hand)) {
-				System.out.println("Invalid word. Try again.");
-				System.out.println("");
-			} else {
-				// Calculate the word score
-				int wordScore = wordScore(input);
-				score += wordScore;  // Add the word score to the total score
-	
-				// Remove the used letters from the hand
-				hand = MyString.remove(hand, input);
-	
-				// Print the result for the word played
-				System.out.println(input + " earned " + wordScore + " points. Total score: " + score + " points");
-				System.out.println("");
-			}
-	
-			// Check if no valid words can be formed with the remaining letters
-			if (hand.length() > 0 && !isWordInDictionary(hand)) {
-				System.out.println("No more valid words can be made from the remaining letters.");
-				break;  // End the hand early
+			}else{
+				if(!MyString.subsetOf(input,hand)){
+					System.out.println("Invalid word. Try again.");
+				}else{
+					int wordScore = wordScore(input);
+					score += wordScore(input);
+					hand = MyString.remove(hand,input);
+					System.out.println(input + " earned " + wordScore + " points. Score: " + score + " points");
+					System.out.println("");
+				}
 			}
 		}
-	
-		// Final message depending on whether the hand ran out of letters or was ended by the user
+			//// Replace the following break statement with code
+			//// that completes the hand playing loop
+		}
 		if (hand.length() == 0) {
-			System.out.println("Ran out of letters. Total score: " + score + " points");
+	        System.out.println("Ran out of letters. Total score: " + score + " points");
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
-	
-	
 	}
 	public static void playGame() {
 		// Initializes the dictionary
