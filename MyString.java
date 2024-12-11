@@ -50,6 +50,10 @@ public class MyString {
     }
     public static String spacedString(String str) {
         char ch = 32;
+        if(str.length() == 0)
+        {
+            return " ";
+        }
         char arr[]= new char[(str.length()*2)];
         for(int i = 0 ; i < arr.length-1; i++)
         {
