@@ -12,8 +12,7 @@ public class MyString {
        // System.out.println(spacedString(hello));
      //   System.out.println(remove("committee", "meet"));
        // System.out.println("comit");
-        System.out.println(subsetOf("pass", "space"));
-        System.out.println(subsetOf("runi", "running"));
+ 
 
 
     }
