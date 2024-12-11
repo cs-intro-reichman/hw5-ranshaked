@@ -96,11 +96,6 @@ public class Scrabble {
 	str = MyString.insertRandomly('e' , str);
 		return str;
 	}
-	
-    // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
-    // 1. The letters in the word are removed from the hand, which becomes smaller.
-    // 2. The user gets the Scrabble points of the entered word.
-    // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) { 
 		int n = hand.length();
 		int score = 0;
@@ -123,7 +118,7 @@ public class Scrabble {
 				System.out.println("Mo such word in the dictionary. Try again.");
 				System.out.println("");
 			}else{
-				if(MyString.subsetOf(input, hand))
+				if(!MyString.subsetOf(input, hand))
 				{
 					System.out.println("Invalid word.Try again.");
 				}else{
@@ -145,9 +140,6 @@ public class Scrabble {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
 	}
-
-	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
-	// to end the game. If the user enters any other input, writes an error message.
 	public static void playGame() {
 		// Initializes the dictionary
     	init();
@@ -162,21 +154,16 @@ public class Scrabble {
 			String input = in.readString();
 			if (input.equals("e")) {
 				break;
-			} else {
-				if(input.equals("n"))
+			} else 	if(input.equals("n"))
 				{
 					playHand(createHand());
 				}else{
 					System.out.println("Error , Try again.");
 				}
-
-			
-			//// Replace the following break statement with code
-			//// that completes the game playing loop
-			break;
+	
 		}
 	}
-	}
+	
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
