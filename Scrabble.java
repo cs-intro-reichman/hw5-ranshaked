@@ -96,7 +96,6 @@ public class Scrabble {
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) { 
-		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
@@ -142,6 +141,7 @@ public class Scrabble {
 			// Gets the user's input, which is all the characters entered by 
 			// the user until the user enter the ENTER character.
 			String input = in.readString();
+			
 			//// Replace the following break statement with code
 			//// that completes the game playing loop
 			break;
@@ -153,10 +153,9 @@ public class Scrabble {
 		//testBuildingTheDictionary();  
 		//testScrabbleScore();    
 		//testCreateHands();  
-		testPlayHands();
-		//playGame();
+	//	testPlayHands();
+		playGame();
 	}
-	
 	public static void testBuildingTheDictionary() {
 	//	init();
 		// Prints a few words
@@ -165,23 +164,21 @@ public class Scrabble {
 	//	}
 	//System.out.println(isWordInDictionary("mango"));
 	}
-	
 	public static void testScrabbleScore() {
 	//	System.out.println(wordScore("bee"));	
 	//	System.out.println(wordScore("babe"));
 	//	System.out.println(wordScore("friendship"));
 	//	System.out.println(wordScore("running"));
 	}
-	
 	public static void testCreateHands() {
 	//	System.out.println(createHand());
 	//	System.out.println(createHand());
 	//	System.out.println(createHand());
 	}
 	public static void testPlayHands() {
-		init();
-		playHand(createHand());
-		playHand(createHand());
-		playHand(createHand());
+		//init();
+		//playHand(createHand());
+		//playHand(createHand());
+		//playHand(createHand());
 	}
 }
