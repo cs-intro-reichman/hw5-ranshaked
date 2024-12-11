@@ -98,6 +98,7 @@ public class Scrabble {
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
 	public static void playHand(String hand) { 
+		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
 		// the stream of characters coming from the keyboard. Used for reading the user's inputs.   
@@ -109,17 +110,27 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			if(input.charAt(0) == '.')
+			if(input.equals("."))
 			{
 				break;
-			}
-			if(isWordInDictionary(input))
-			{
-				score += wordScore(input);
-				hand = MyString.remove(hand, input);
 			}else{
-				System.out.println("your word not from the dictionary");
+			if(!isWordInDictionary(input))
+			{
+				System.out.println("Mo such word in the dictionary. Try again.");
+				System.out.println("");
+			}else{
+				if(MyString.subsetOf(input, hand))
+				{
+					System.out.println("Invalid word.Try again.");
+				}else{
+					int wordScore = wordScore(input);
+					score += wordScore(input);
+					hand = MyString.remove(hand,input);
+					System.out.println(input + " earned" + wordScore + " points. Score: " + score);
+					System.out.println("");
+				}
 			}
+		}
 			
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
@@ -151,6 +162,8 @@ public class Scrabble {
 				if(input.equals("n"))
 				{
 					playHand(createHand());
+				}else{
+					System.out.println("Error , Try again.");
 				}
 
 			

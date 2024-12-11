@@ -49,24 +49,22 @@ public class MyString {
         return false;
     }
     public static String spacedString(String str) {
-        char ch = 32;
+        String str1 = "";
         if(str.length() == 0)
         {
-            return "";
+            return str1;
         }
-
-        char arr[]= new char[(str.length()*2)];
-        for(int i = 0 ; i < arr.length-1; i++)
+        for(int i = 0 ; i<str.length(); i++)
         {
-            arr[i] = str.charAt(i/2);
-            if(i/2 == str.length()-1)
+            char cd = str.charAt(i);
+            if(i == str.length()-1)
             {
-                return new String(arr);
+                str1 += cd;
+            }else{
+                str1 += cd + " ";
             }
-            i++;
-            arr[i] = ch;
-        } 
-        return new String (arr);
+        }
+        return str1;
     }
     public static String randomStringOfLetters(int n) {
         char arr[] = new char[n];
