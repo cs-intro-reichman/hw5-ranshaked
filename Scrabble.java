@@ -53,7 +53,7 @@ public class Scrabble {
 		// Checks if the given word is in the dictionary.
 		for( int i = 0 ; i< DICTIONARY.length; i++)
 		{
-			if(MyString.subsetOf(word,DICTIONARY[i]))
+			if(word == DICTIONARY[i])
 			{
 				return true;
 			}
@@ -95,7 +95,7 @@ public class Scrabble {
     // 1. The letters in the word are removed from the hand, which becomes smaller.
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
-	public static void playHand(String hand) {
+	public static void playHand(String hand) { 
 		int n = hand.length();
 		int score = 0;
 		// Declares the variable in to refer to an object of type In, and initializes it to represent
@@ -108,6 +108,11 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
+			if(isWordInDictionary(input))
+			{
+				score = wordScore(input);
+			}
+			
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
 			break;
@@ -141,36 +146,36 @@ public class Scrabble {
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		testBuildingTheDictionary();  
-		testScrabbleScore();    
-		testCreateHands();  
-		testPlayHands();
+		//testBuildingTheDictionary();  
+		//testScrabbleScore();    
+		//testCreateHands();  
+		//testPlayHands();
 		playGame();
 	}
 	
 	public static void testBuildingTheDictionary() {
-		init();
+	//	init();
 		// Prints a few words
-		for (int i = 0; i < 5; i++) {
-			System.out.println(DICTIONARY[i]);
-		}
-		System.out.println(isWordInDictionary("mango"));
+		//for (int i = 0; i < 5; i++) {
+		//	System.out.println(DICTIONARY[i]);
+	//	}
+	//System.out.println(isWordInDictionary("mango"));
 	}
 	
 	public static void testScrabbleScore() {
-		System.out.println(wordScore("bee"));	
-		System.out.println(wordScore("babe"));
-		System.out.println(wordScore("friendship"));
-		System.out.println(wordScore("running"));
+	//	System.out.println(wordScore("bee"));	
+	//	System.out.println(wordScore("babe"));
+	//	System.out.println(wordScore("friendship"));
+	//	System.out.println(wordScore("running"));
 	}
 	
 	public static void testCreateHands() {
-		System.out.println(createHand());
-		System.out.println(createHand());
-		System.out.println(createHand());
+	//	System.out.println(createHand());
+	//	System.out.println(createHand());
+	//	System.out.println(createHand());
 	}
 	public static void testPlayHands() {
-		init();
+		//init();
 		//playHand("ocostrza");
 		//playHand("arbffip");
 		//playHand("aretiin");
