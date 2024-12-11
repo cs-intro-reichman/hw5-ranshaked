@@ -1,7 +1,10 @@
+
+
 /*
  * RUNI version of the Scrabble game.
  */
 public class Scrabble {
+	
 
 	// Note 1: "Class variables", like the five class-level variables declared below,
 	// are global variables that can be accessed by any function in the class. It is
@@ -45,27 +48,46 @@ public class Scrabble {
 		}
         System.out.println(NUM_OF_WORDS + " words loaded.");
 	}
-
-	// Checks if the given word is in the dictionary.
+	
 	public static boolean isWordInDictionary(String word) {
-		//// Replace the following statement with your code
+		// Checks if the given word is in the dictionary.
+		for( int i = 0 ; i< DICTIONARY.length; i++)
+		{
+			if(MyString.subsetOf(word,DICTIONARY[i]))
+			{
+				return true;
+			}
+		}
 		return false;
 	}
-	
-	// Returns the Scrabble score of the given word.
+	public static int wordScore(String word) {
+			// Returns the Scrabble score of the given word.
 	// If the length of the word equals the length of the hand, adds 50 points to the score.
 	// If the word includes the sequence "runi", adds 1000 points to the game.
-	public static int wordScore(String word) {
-		//// Replace the following statement with your code
-		return 0;
+		int num = 0;
+		if(MyString.subsetOf("runi", word)){num = 1000;return num;}
+		if(word.length() == createHand().length())	{num = 50;return num;}
+		for(int i = 0 ; i < word.length(); i++)
+		{
+			for(int j = 0 ; j < SCRABBLE_LETTER_VALUES.length ; j++)
+			{
+				if(word.charAt(i) == j+97)
+				{
+					num += SCRABBLE_LETTER_VALUES[j];
+					break;
+				}
+			}
+		}
+		return num;
 	}
-
-	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
+	public static String createHand() {
+			// Creates a random hand of length (HAND_SIZE - 2) and then inserts
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
-	public static String createHand() {
-		//// Replace the following statement with your code
-		return null;
+	String str =MyString.randomStringOfLetters(HAND_SIZE-2);
+	str = MyString.insertRandomly('a' , str);
+	str = MyString.insertRandomly('e' , str);
+		return str;
 	}
 	
     // Runs a single hand in a Scrabble game. Each time the user enters a valid word:
@@ -118,13 +140,13 @@ public class Scrabble {
 
 	public static void main(String[] args) {
 		//// Uncomment the test you want to run
-		////testBuildingTheDictionary();  
-		////testScrabbleScore();    
-		////testCreateHands();  
-		////testPlayHands();
-		////playGame();
+	//	testBuildingTheDictionary();  
+		//testScrabbleScore();    
+		//testCreateHands();  
+		//testPlayHands();
+		//playGame();
 	}
-
+	
 	public static void testBuildingTheDictionary() {
 		init();
 		// Prints a few words
