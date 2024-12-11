@@ -59,7 +59,12 @@ public class MyString {
             i++;
             arr[i]= ch;
         } 
-        return new String (arr);
+        char arr1[] = new char[arr.length];
+        for(int t = 0 ; t < arr1.length ; t++)
+        {
+            arr1[t] = arr[t+1];
+        }
+        return new String (arr1);
     }
     public static String randomStringOfLetters(int n) {
         char arr[] = new char[n];
