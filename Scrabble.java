@@ -118,7 +118,7 @@ public class Scrabble {
 				System.out.println("");
 			}else{
 				if(!MyString.subsetOf(input,hand)){
-					System.out.println("Invalid word. Try again.");
+					System.out.println("No such word in the dictionary. Try again.");
 				}else{
 					int wordScore = wordScore(input);
 					score += wordScore(input);
