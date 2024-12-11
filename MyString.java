@@ -5,13 +5,14 @@
  */
 public class MyString {
     public static void main(String args[]) {
-        String hello = "hello";
-        System.out.println(countChar(hello, 'h'));
-        System.out.println(countChar(hello, 'l'));
-        System.out.println(countChar(hello, 'z'));
-        System.out.println(spacedString(hello));
-        System.out.println(remove("committee", "meet"));
-        System.out.println("comit");
+       // String hello = "hello";
+      //  System.out.println(countChar(hello, 'h'));
+       // System.out.println(countChar(hello, 'l'));
+      //  System.out.println(countChar(hello, 'z'));
+       // System.out.println(spacedString(hello));
+     //   System.out.println(remove("committee", "meet"));
+       // System.out.println("comit");
+        System.out.println(subsetOf("runi", "running"));
 
 
     }
@@ -31,16 +32,13 @@ public class MyString {
         int counter = 0;
         for(int i = 0 ; i < str1.length(); i++)
         {
-            if(countChar(str2, str1.charAt(i))==1)
+            if(countChar(str2, str1.charAt(i))>=1)
             {
                 counter++;
             }
-            if(countChar(str2,str1.charAt(i)) != countChar(str1,str1.charAt(i)))
-            {
-               return false;
-            }
             
         }
+        System.out.println(counter);
         if(counter == str1.length())
         {
             return true;
