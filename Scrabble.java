@@ -111,11 +111,13 @@ public class Scrabble {
 			if(isWordInDictionary(input))
 			{
 				score = wordScore(input);
+				MyString.remove(hand, input);
+			}else{
+				break;
 			}
 			
 			//// Replace the following break statement with code
 			//// that completes the hand playing loop
-			break;
 		}
 		if (hand.length() == 0) {
 	        System.out.println("Ran out of letters. Total score: " + score + " points");
