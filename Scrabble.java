@@ -114,7 +114,7 @@ public class Scrabble {
 			break;
 			}else{
 			if(!isWordInDictionary(input)){
-				System.out.println("Mo such word in the dictionary. Try again.");
+				System.out.println("Invalid word.Try again.");
 				System.out.println("");
 			}else{
 				if(!MyString.subsetOf(input, hand)){
